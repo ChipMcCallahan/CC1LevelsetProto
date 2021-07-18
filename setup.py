@@ -7,7 +7,7 @@ setup(
     author='Chip McCallahan',
     author_email='thisischipmccallahan@gmail.com',
     # Needed to actually package something
-    packages=['proto'],
+    packages=['cc1_levelset_proto'],
     # Needed for dependencies
     install_requires=[],
     # *strongly* suggested for sharing
