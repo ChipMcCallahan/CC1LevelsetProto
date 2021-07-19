@@ -30,6 +30,9 @@ message Level {
     string hint = 6;
     string password = 7;
     Map map = 8;
+    map<int32, int32> trap_controls = 9; // for (x, y) convert to y * 32 + x
+    map<int32, int32> clone_controls = 10; // for (x, y) convert to y * 32 + x
+    repeated int32 movement = 11; // for (x, y) convert to y * 32 + x
 }
 
 // intended use: map[y * 32 + x] = <tile spec>
