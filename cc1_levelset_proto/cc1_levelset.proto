@@ -13,7 +13,9 @@ message Levelset {
 
     message Story {
         int32 level_number = 1;
-        repeated string text = 2;
+        Type type = 2;
+        repeated string text = 3;
+
         enum Type {
             PROLOGUE = 0;
             EPILOGUE = 1;
