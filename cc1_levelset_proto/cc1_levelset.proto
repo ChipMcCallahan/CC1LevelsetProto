@@ -42,11 +42,6 @@ message Map {
     map<int32, TileSpec> tiles = 1;
 }
 
-message Pos {
-    int32 x = 1;
-    int32 y = 2;
-}
-
 message TileSpec {
     CC1TileCode top = 1;
     CC1TileCode bottom = 2;
