@@ -20,7 +20,7 @@ level.password = "AAAA"
 level.hint = "This is a hint."
 level.clone_controls[33] = 45
 level.trap_controls[13] = 37
-level.movement.append(1337)
+level.movement.append(14 * 32 + 28)
 x, y = 16, 16
 tilespec = level.map.tiles[y * 32 + x]
 tilespec.top = CC1TileCode.PLAYER_S
