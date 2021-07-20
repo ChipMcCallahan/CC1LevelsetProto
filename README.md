@@ -7,7 +7,7 @@ Proto definition and generated Python code for working with CC1 levelsets.
 ```
 
 ```python
-from cc1_levelset_proto.cc1_levelset_pb2 import Levelset
+from cc1_levelset_proto.cc1_levelset_pb2 import Levelset, CC1TileCode
 
 levelset = Levelset()
 levelset.name = "Demo"
