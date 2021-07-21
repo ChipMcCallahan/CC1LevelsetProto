@@ -2,6 +2,8 @@
 Proto definition and generated Python code for working with CC1 levelsets.
 
 ### Demo
+See the [Colab notebook](https://github.com/ChipMcCallahan/CC1LevelsetProto/blob/main/cc1_levelset_proto.ipynb) for a fully interactive demo, or use these snippets to get started.
+
 ```
 !pip install git+https://github.com/ChipMcCallahan/CC1LevelsetProto.git
 ```
