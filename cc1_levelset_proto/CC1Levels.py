@@ -10,9 +10,9 @@ def add(level, pos, tcode):
 def remove(level, pos, tcodes):
 	if isinstance(tcodes, int):
 		tcodes = [tcodes]
-    tspec = level[pos]
-    removed = False
-    for tcode in tcodes:
+	tspec = level[pos]
+	removed = False
+	for tcode in tcodes:
 		if CC1TileSpecs.remove(tspec, tcode):
 			if tcode in CC1TileCodes.MONSTERS and pos in level.movement:
 				del level.movement[level.movement.index(pos)]
