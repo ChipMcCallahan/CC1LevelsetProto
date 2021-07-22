@@ -27,6 +27,7 @@ class CC1TileCodes:
     KEYS = {CC1TileCode.Value(s) for s in tuple(f"{c}_KEY" for c in ("RED", "BLUE", "YELLOW", "GREEN"))}
     BOOTS = {CC1TileCode.Value(s) for s in ("FLIPPERS", "FIRE_BOOTS", "SKATES", "SUCTION_BOOTS")}
     PICKUPS = set().union(KEYS, BOOTS, set((CC1TileCode.CHIP,)))
+    BUTTONS = {CC1TileCode.Value(s) for s in ("GREEN_BUTTON", "TRAP_BUTTON", "CLONE_BUTTON", "TANK_BUTTON")}
     INVALID = {
         CC1TileCode.NOT_USED_0,
         CC1TileCode.DROWN_CHIP,
