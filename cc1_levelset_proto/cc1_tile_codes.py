@@ -1,5 +1,5 @@
 import itertools
-from cc1_levelset_pb2 import CC1TileCode
+from cc1_levelset_proto.cc1_levelset_pb2 import CC1TileCode
 
 # Utils for CC1TileCode enum
 class CC1TileCodes:
