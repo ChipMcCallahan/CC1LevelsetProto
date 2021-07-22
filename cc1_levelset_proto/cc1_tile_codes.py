@@ -3,7 +3,7 @@ from cc1_levelset_proto.cc1_levelset_pb2 import CC1TileCode
 
 # Utils for CC1TileCode enum
 class CC1TileCodes:
-    ALL = CC1TileCode.values()
+    ALL = set(CC1TileCode.values())
     ICE = {CC1TileCode.Value(s) for s in ("ICE", "ICE_NW", "ICE_NE", "ICE_SW", "ICE_SE")}
     FORCES = {CC1TileCode.Value(s) for s in ("FORCE_N", "FORCE_E", "FORCE_S", "FORCE_W", "FORCE_RANDOM")}
     WALLS = {CC1TileCode.Value(s) for s in ("WALL", "INV_WALL_PERM", "INV_WALL_APP", "BLUE_WALL_REAL")}
