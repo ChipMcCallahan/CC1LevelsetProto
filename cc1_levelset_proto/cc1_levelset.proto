@@ -153,7 +153,7 @@ enum CC1TileCode {
     GREEN_KEY = 102;
     YELLOW_KEY = 103;
     FLIPPERS = 104;
-    FIREBOOTS = 105;
+    FIRE_BOOTS = 105;
     SKATES = 106;
     SUCTION_BOOTS = 107;
     PLAYER_N = 108;
