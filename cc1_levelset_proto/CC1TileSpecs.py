@@ -1,6 +1,6 @@
 import itertools
 from cc1_levelset_proto.cc1_levelset_pb2 import CC1TileCode, TileSpec
-import cc1_levelset_proto.CC1TileCodes
+from cc1_levelset_proto import CC1TileCodes
 
 # Utils for CC1TileSpec proto
 def of(top, bottom=CC1TileCode.FLOOR):
