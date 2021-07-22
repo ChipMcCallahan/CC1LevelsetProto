@@ -23,6 +23,22 @@ class CC1TileCodes:
     DOORS = {CC1TileCode.Value(s) for s in tuple(f"{c}_DOOR" for c in ("RED", "BLUE", "YELLOW", "GREEN"))}
     KEYS = {CC1TileCode.Value(s) for s in tuple(f"{c}_KEY" for c in ("RED", "BLUE", "YELLOW", "GREEN"))}
     BOOTS = {CC1TileCode.Value(s) for s in ("FLIPPERS", "FIRE_BOOTS", "SKATES", "SUCTION_BOOTS")}
+    INVALID = {
+        CC1TileCode.NOT_USED_0,
+        CC1TileCode.DROWN_CHIP,
+        CC1TileCode.BURNED_CHIP0,
+        CC1TileCode.BURNED_CHIP1,
+        CC1TileCode.NOT_USED_1,
+        CC1TileCode.NOT_USED_2,
+        CC1TileCode.NOT_USED_3,
+        CC1TileCode.CHIP_EXIT,
+        CC1TileCode.UNUSED_EXIT_0,
+        CC1TileCode.UNUSED_EXIT_1,
+        CC1TileCode.CHIP_SWIMMING_N,
+        CC1TileCode.CHIP_SWIMMING_E,
+        CC1TileCode.CHIP_SWIMMING_S,
+        CC1TileCode.CHIP_SWIMMING_W
+    }
 
     @staticmethod
     def rotate(letters, d):
