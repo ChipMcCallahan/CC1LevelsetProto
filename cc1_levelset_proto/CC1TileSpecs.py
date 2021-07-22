@@ -3,45 +3,45 @@ from cc1_levelset_proto.cc1_levelset_pb2 import CC1TileCode, TileSpec
 import cc1_levelset_proto.CC1TileCodes
 
 # Utils for CC1TileSpec proto
-    def of(top, bottom=CC1TileCode.FLOOR):
-        tspec = TileSpec()
-        tspec.top = top
-        if bottom != CC1TileCode.FLOOR:
-            tspec.bottom = bottom
-        return tspec
+def of(top, bottom=CC1TileCode.FLOOR):
+    tspec = TileSpec()
+    tspec.top = top
+    if bottom != CC1TileCode.FLOOR:
+        tspec.bottom = bottom
+    return tspec
 
-    def is_invalid(tspec):
-        return (tspec.top not in CC1TileCodes.ENTITIES and 
-                tspec.bottom != CC1TileCode.FLOOR) or \
-                tspec.top in CC1TileCodes.INVALID or \
-                tspec.bottom in set().union(CC1TileCodes.INVALID, CC1TileCodes.ENTITIES)
+def is_invalid(tspec):
+    return (tspec.top not in CC1TileCodes.ENTITIES and 
+            tspec.bottom != CC1TileCode.FLOOR) or \
+            tspec.top in CC1TileCodes.INVALID or \
+            tspec.bottom in set().union(CC1TileCodes.INVALID, CC1TileCodes.ENTITIES)
 
-    def add(tspec, tcode):
-        is_entity = tcode in CC1TileCodes.ENTITIES
-        entity_here = tspec.top in CC1TileCodes.ENTITIES
-        if is_entity:
-            if not entity_here:
-                tspec.bottom = tspec.top
-            tspec.top = tcode
+def add(tspec, tcode):
+    is_entity = tcode in CC1TileCodes.ENTITIES
+    entity_here = tspec.top in CC1TileCodes.ENTITIES
+    if is_entity:
+        if not entity_here:
+            tspec.bottom = tspec.top
+        tspec.top = tcode
+    else:
+        if entity_here:
+            tspec.bottom = tcode
         else:
-            if entity_here:
-                tspec.bottom = tcode
-            else:
-                tspec.top = tcode
+            tspec.top = tcode
 
-    def remove(tspec, tcodes):
-        if isinstance(tcodes, int):
-            tcodes = [tcodes]
-        removed = False
-        for tcode in tcodes:
-            if tcode == tspec.top:
-                removed = True
-                tspec.top = tspec.bottom
-                tspec.ClearField("bottom")
-            elif tcode == tspec.bottom:
-                removed = True
-                tspec.ClearField("bottom")
-        return removed
+def remove(tspec, tcodes):
+    if isinstance(tcodes, int):
+        tcodes = [tcodes]
+    removed = False
+    for tcode in tcodes:
+        if tcode == tspec.top:
+            removed = True
+            tspec.top = tspec.bottom
+            tspec.ClearField("bottom")
+        elif tcode == tspec.bottom:
+            removed = True
+            tspec.ClearField("bottom")
+    return removed
 
 def do_assertions():
 
