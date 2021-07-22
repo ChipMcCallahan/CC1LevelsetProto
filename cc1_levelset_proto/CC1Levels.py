@@ -10,7 +10,7 @@ def add(level, pos, tcode):
 def remove(level, pos, tcodes):
 	if isinstance(tcodes, int):
 		tcodes = [tcodes]
-	tspec = level[pos]
+	tspec = level.map[pos]
 	removed = False
 	for tcode in tcodes:
 		if CC1TileSpecs.remove(tspec, tcode):
