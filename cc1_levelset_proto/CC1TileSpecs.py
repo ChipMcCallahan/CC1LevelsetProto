@@ -34,7 +34,9 @@ def remove(tspec, tcodes):
         tcodes = [tcodes]
     removed = False
     for tcode in tcodes:
-        if tcode == tspec.top:
+        if tcode == CC1TileCode.FLOOR:
+            continue
+        elif tcode == tspec.top:
             removed = True
             tspec.top = tspec.bottom
             tspec.ClearField("bottom")
