@@ -6,7 +6,7 @@ from cc1_levelset_proto.cc1_tile_codes import CC1TileCodes
 class CC1TileSpecs:
     @staticmethod
     def of(top, bottom=CC1TileCode.FLOOR):
-        tspec = TileSpec
+        tspec = TileSpec()
         tspec.top = top
         if bottom != CC1TileCode.FLOOR:
             tspec.bottom = bottom
