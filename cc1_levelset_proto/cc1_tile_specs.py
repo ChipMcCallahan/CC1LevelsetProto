@@ -37,12 +37,16 @@ class CC1TileSpecs:
     def remove(tspec, tcodes):
         if isinstance(tcodes, int):
             tcodes = [tcodes]
+        removed = False
         for tcode in tcodes:
             if tcode == tspec.top:
+                removed = True
                 tspec.top = tspec.bottom
                 tspec.ClearField("bottom")
             elif tcode == tspec.bottom:
+                removed = True
                 tspec.ClearField("bottom")
+        return removed
 
 def do_assertions():
 
@@ -75,27 +79,27 @@ def do_assertions():
 
     # test remove scenarios
     tspec = CC1TileSpecs.of(CC1TileCode.WALL)
-    CC1TileSpecs.remove(tspec, CC1TileCode.BLOCK)
+    assert not CC1TileSpecs.remove(tspec, CC1TileCode.BLOCK)
     assert tspec == CC1TileSpecs.of(CC1TileCode.WALL)
 
     tspec = CC1TileSpecs.of(CC1TileCode.WALL)
-    CC1TileSpecs.remove(tspec, CC1TileCode.WALL)
+    assert CC1TileSpecs.remove(tspec, CC1TileCode.WALL)
     assert tspec == CC1TileSpecs.of(CC1TileCode.FLOOR)    
 
     tspec = CC1TileSpecs.of(CC1TileCode.TEETH_S, CC1TileCode.WALL)
-    CC1TileSpecs.remove(tspec, CC1TileCode.WALL)
+    assert CC1TileSpecs.remove(tspec, CC1TileCode.WALL)
     assert tspec == CC1TileSpecs.of(CC1TileCode.TEETH_S)
 
     tspec = CC1TileSpecs.of(CC1TileCode.TEETH_S, CC1TileCode.WALL)
-    CC1TileSpecs.remove(tspec, CC1TileCode.TEETH_S)
+    assert CC1TileSpecs.remove(tspec, CC1TileCode.TEETH_S)
     assert tspec == CC1TileSpecs.of(CC1TileCode.WALL)   
 
     tspec = CC1TileSpecs.of(CC1TileCode.TEETH_S, CC1TileCode.WALL)
-    CC1TileSpecs.remove(tspec, CC1TileCodes.ENTITIES)
+    assert CC1TileSpecs.remove(tspec, CC1TileCodes.ENTITIES)
     assert tspec == CC1TileSpecs.of(CC1TileCode.WALL)
 
     tspec = CC1TileSpecs.of(CC1TileCode.FIRE, CC1TileCode.WALL)
-    CC1TileSpecs.remove(tspec, CC1TileCodes.WALLS)
+    assert CC1TileSpecs.remove(tspec, CC1TileCodes.WALLS)
     assert tspec == CC1TileSpecs.of(CC1TileCode.FIRE)
 
     print("CC1TileSpecs assertions passed.")
