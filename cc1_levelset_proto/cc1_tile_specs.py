@@ -15,8 +15,8 @@ class CC1TileSpecs:
     @staticmethod
     def is_invalid(tspec):
         return (tspec.top not in CC1TileCodes.ENTITIES and 
-                tspec.bottom != CC1TileCode.FLOOR) or 
-                tspec.top in CC1TileCodes.INVALID or
+                tspec.bottom != CC1TileCode.FLOOR) or \
+                tspec.top in CC1TileCodes.INVALID or \
                 tspec.bottom in set().union(CC1TileCodes.INVALID, CC1TileCodes.ENTITIES)
 
     @staticmethod
