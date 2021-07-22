@@ -97,8 +97,6 @@ def do_assertions():
     assert remove(tspec, CC1TileCodes.WALLS)
     assert tspec == of(CC1TileCode.FIRE)
 
-    print("assertions passed.")
-
 
 # file will raise AssertionError on import if assertions fail
 do_assertions()
