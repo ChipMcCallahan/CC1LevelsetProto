@@ -3,7 +3,9 @@ from cc1_levelset_pb2 import CC1TileCode
 
 # Utils for CC1TileCode enum
 class CC1TileCodes:
+    ALL = CC1TileCode.values()
     ICE = {CC1TileCode.Value(s) for s in ("ICE", "ICE_NW", "ICE_NE", "ICE_SW", "ICE_SE")}
+    FORCES = {CC1TileCode.Value(s) for s in ("FORCE_N", "FORCE_E", "FORCE_S", "FORCE_W", "FORCE_RANDOM")}
     WALLS = {CC1TileCode.Value(s) for s in ("WALL", "INV_WALL_PERM", "INV_WALL_APP", "BLUE_WALL_REAL")}
     PANELS = {CC1TileCode.Value(s) for s in ("PANEL_SE", "PANEL_N", "PANEL_E", "PANEL_S", "PANEL_W")}
     CLONE_BLOCKS = {CC1TileCode.Value(s) for s in tuple(f"CLONE_BLOCK_{d}" for d in "NESW")}
@@ -18,8 +20,9 @@ class CC1TileCodes:
     WALKERS = {CC1TileCode.Value(s) for s in tuple(f"WALKER_{d}" for d in "NESW")}
     TEETH = {CC1TileCode.Value(s) for s in tuple(f"TEETH_{d}" for d in "NESW")}
     BLOBS = {CC1TileCode.Value(s) for s in tuple(f"BLOB_{d}" for d in "NESW")}
-    MONSTERS = ANTS.union(PARAMECIA, GLIDERS, FIREBALLS, TANKS, BALLS, WALKERS, TEETH, BLOBS)
-    ENTITIES = MONSTERS.union(BLOCKS, PLAYERS)
+    MONSTERS = set().union(ANTS, PARAMECIA, GLIDERS, FIREBALLS, TANKS, BALLS, WALKERS, TEETH, BLOBS)
+    ENTITIES = set().union(MONSTERS, BLOCKS, PLAYERS)
+    NONENTITIES = ALL.difference(ENTITIES)
     DOORS = {CC1TileCode.Value(s) for s in tuple(f"{c}_DOOR" for c in ("RED", "BLUE", "YELLOW", "GREEN"))}
     KEYS = {CC1TileCode.Value(s) for s in tuple(f"{c}_KEY" for c in ("RED", "BLUE", "YELLOW", "GREEN"))}
     BOOTS = {CC1TileCode.Value(s) for s in ("FLIPPERS", "FIRE_BOOTS", "SKATES", "SUCTION_BOOTS")}
