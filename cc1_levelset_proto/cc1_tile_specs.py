@@ -47,56 +47,56 @@ class CC1TileSpecs:
 def do_assertions():
 
     # test is_invalid scenarios
-    assert CC1TileSpecs.is_invalid(CC1TileCodes.of(CC1TileCode.FLOOR, CC1TileCode.WALL))
-    assert CC1TileSpecs.is_invalid(CC1TileCodes.of(CC1TileCode.FLOOR, CC1TileCode.TEETH_S))
-    assert CC1TileSpecs.is_invalid(CC1TileCodes.of(CC1TileCode.TEETH_S, CC1TileCode.TEETH_S))
-    assert CC1TileSpecs.is_invalid(CC1TileCodes.of(CC1TileCode.NOT_USED_0))
-    assert not CC1TileSpecs.is_invalid(CC1TileCodes.of(CC1TileCode.TEETH_S, CC1TileCode.GRAVEL))
-    assert not CC1TileSpecs.is_invalid(CC1TileCodes.of(CC1TileCode.WALL))
+    assert CC1TileSpecs.is_invalid(CC1TileSpecs.of(CC1TileCode.FLOOR, CC1TileCode.WALL))
+    assert CC1TileSpecs.is_invalid(CC1TileSpecs.of(CC1TileCode.FLOOR, CC1TileCode.TEETH_S))
+    assert CC1TileSpecs.is_invalid(CC1TileSpecs.of(CC1TileCode.TEETH_S, CC1TileCode.TEETH_S))
+    assert CC1TileSpecs.is_invalid(CC1TileSpecs.of(CC1TileCode.NOT_USED_0))
+    assert not CC1TileSpecs.is_invalid(CC1TileSpecs.of(CC1TileCode.TEETH_S, CC1TileCode.GRAVEL))
+    assert not CC1TileSpecs.is_invalid(CC1TileSpecs.of(CC1TileCode.WALL))
 
 
     # test add scenarios
-    tspec = CC1TileCodes.of(CC1TileCode.WALL)
-    CC1TileCodes.add(tspec, CC1TileCode.FIRE)
-    assert tspec == CC1TileCodes.of(CC1TileCode.FIRE)
+    tspec = CC1TileSpecs.of(CC1TileCode.WALL)
+    CC1TileSpecs.add(tspec, CC1TileCode.FIRE)
+    assert tspec == CC1TileSpecs.of(CC1TileCode.FIRE)
 
-    tspec = CC1TileCodes.of(CC1TileCode.TEETH_S, CC1TileCode.GRAVEL)
-    CC1TileCodes.add(tspec, CC1TileCode.FIRE)
-    assert tspec == CC1TileCodes.of(CC1TileCode.TEETH_S, CC1TileCode.FIRE)
+    tspec = CC1TileSpecs.of(CC1TileCode.TEETH_S, CC1TileCode.GRAVEL)
+    CC1TileSpecs.add(tspec, CC1TileCode.FIRE)
+    assert tspec == CC1TileSpecs.of(CC1TileCode.TEETH_S, CC1TileCode.FIRE)
 
-    tspec = CC1TileCodes.of(CC1TileCode.TEETH_S, CC1TileCode.GRAVEL)
-    CC1TileCodes.add(tspec, CC1TileCode.PLAYER_S)
-    assert tspec == CC1TileCodes.of(CC1TileCode.PLAYER_S, CC1TileCode.GRAVEL)
+    tspec = CC1TileSpecs.of(CC1TileCode.TEETH_S, CC1TileCode.GRAVEL)
+    CC1TileSpecs.add(tspec, CC1TileCode.PLAYER_S)
+    assert tspec == CC1TileSpecs.of(CC1TileCode.PLAYER_S, CC1TileCode.GRAVEL)
 
-    tspec = CC1TileCodes.of(CC1TileCode.WALL)
-    CC1TileCodes.add(tspec, CC1TileCode.BLOCK)
-    assert tspec == CC1TileCodes.of(CC1TileCode.BLOCK, CC1TileCode.WALL)
+    tspec = CC1TileSpecs.of(CC1TileCode.WALL)
+    CC1TileSpecs.add(tspec, CC1TileCode.BLOCK)
+    assert tspec == CC1TileSpecs.of(CC1TileCode.BLOCK, CC1TileCode.WALL)
 
 
     # test remove scenarios
-    tspec = CC1TileCodes.of(CC1TileCode.WALL)
-    CC1TileCodes.remove(tspec, CC1TileCode.BLOCK)
-    assert tspec == CC1TileCodes.of(CC1TileCode.WALL)
+    tspec = CC1TileSpecs.of(CC1TileCode.WALL)
+    CC1TileSpecs.remove(tspec, CC1TileCode.BLOCK)
+    assert tspec == CC1TileSpecs.of(CC1TileCode.WALL)
 
-    tspec = CC1TileCodes.of(CC1TileCode.WALL)
-    CC1TileCodes.remove(tspec, CC1TileCode.WALL)
-    assert tspec == CC1TileCodes.of(CC1TileCode.FLOOR)    
+    tspec = CC1TileSpecs.of(CC1TileCode.WALL)
+    CC1TileSpecs.remove(tspec, CC1TileCode.WALL)
+    assert tspec == CC1TileSpecs.of(CC1TileCode.FLOOR)    
 
-    tspec = CC1TileCodes.of(CC1TileCode.TEETH_S, CC1TileCode.WALL)
-    CC1TileCodes.remove(tspec, CC1TileCode.WALL)
-    assert tspec == CC1TileCodes.of(CC1TileCode.TEETH_S)
+    tspec = CC1TileSpecs.of(CC1TileCode.TEETH_S, CC1TileCode.WALL)
+    CC1TileSpecs.remove(tspec, CC1TileCode.WALL)
+    assert tspec == CC1TileSpecs.of(CC1TileCode.TEETH_S)
 
-    tspec = CC1TileCodes.of(CC1TileCode.TEETH_S, CC1TileCode.WALL)
-    CC1TileCodes.remove(tspec, CC1TileCode.TEETH_S)
-    assert tspec == CC1TileCodes.of(CC1TileCode.WALL)   
+    tspec = CC1TileSpecs.of(CC1TileCode.TEETH_S, CC1TileCode.WALL)
+    CC1TileSpecs.remove(tspec, CC1TileCode.TEETH_S)
+    assert tspec == CC1TileSpecs.of(CC1TileCode.WALL)   
 
-    tspec = CC1TileCodes.of(CC1TileCode.TEETH_S, CC1TileCode.WALL)
-    CC1TileCodes.remove(tspec, CC1TileCodes.ENTITIES)
-    assert tspec == CC1TileCodes.of(CC1TileCode.WALL)
+    tspec = CC1TileSpecs.of(CC1TileCode.TEETH_S, CC1TileCode.WALL)
+    CC1TileSpecs.remove(tspec, CC1TileCodes.ENTITIES)
+    assert tspec == CC1TileSpecs.of(CC1TileCode.WALL)
 
-    tspec = CC1TileCodes.of(CC1TileCode.FIRE, CC1TileCode.WALL)
-    CC1TileCodes.remove(tspec, CC1TileCodes.WALLS)
-    assert tspec == CC1TileCodes.of(CC1TileCode.FIRE)
+    tspec = CC1TileSpecs.of(CC1TileCode.FIRE, CC1TileCode.WALL)
+    CC1TileSpecs.remove(tspec, CC1TileCodes.WALLS)
+    assert tspec == CC1TileSpecs.of(CC1TileCode.FIRE)
 
 
 # file will raise AssertionError on import if assertions fail
