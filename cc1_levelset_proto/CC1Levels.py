@@ -2,7 +2,7 @@ from cc1_levelset_proto.cc1_levelset_pb2 import CC1TileCode
 from cc1_levelset_proto import CC1TileCodes, CC1TileSpecs
 
 def add(level, pos, tcode):
-	tspec = level[pos]
+	tspec = level.map[pos]
 	CC1TileSpecs.add(tspec, tcode)
 	if tcode in CC1TileCodes.MONSTERS and pos not in level.movement:
 		level.movement.append(pos)
