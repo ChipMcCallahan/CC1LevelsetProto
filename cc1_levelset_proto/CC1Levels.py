@@ -9,7 +9,7 @@ def add(level, pos, tcode):
 
 def remove(level, pos, tcodes):
 	if isinstance(tcodes, int):
-        tcodes = [tcodes]
+		tcodes = [tcodes]
     tspec = level[pos]
     removed = False
     for tcode in tcodes:
