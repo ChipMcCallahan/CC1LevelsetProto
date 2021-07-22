@@ -1,5 +1,7 @@
 // Compile _pb2.py with 
 // protoc -I=$SRC_DIR --python_out=$DST_DIR $SRC_DIR/cc1_levelset.proto
+// or for same folder ops just
+// protoc --python_out=. cc1_levelset.proto 
 
 syntax = "proto3";
 
@@ -31,15 +33,14 @@ message Level {
     int32 chips = 5;
     string hint = 6;
     string password = 7;
-    Map map = 8;
-    map<int32, int32> trap_controls = 9; // for (x, y) convert to y * 32 + x
-    map<int32, int32> clone_controls = 10; // for (x, y) convert to y * 32 + x
-    repeated int32 movement = 11; // for (x, y) convert to y * 32 + x
-}
 
-// intended use: map[y * 32 + x] = <tile spec>
-message Map {
-    map<int32, TileSpec> tiles = 1;
+    // All int32 values must be packed and unpacked by these formulas:
+    //          p = y * 32 + x
+    //       x, y = p % 32, p // 32
+    map<int32, TileSpec> map = 8; 
+    map<int32, int32> trap_controls = 9;
+    map<int32, int32> clone_controls = 10;
+    repeated int32 movement = 11;
 }
 
 message TileSpec {
