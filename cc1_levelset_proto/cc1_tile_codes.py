@@ -44,6 +44,7 @@ class CC1TileCodes:
         CC1TileCode.CHIP_SWIMMING_W
     }
 
+    # Rotate letter string e.g. "N", "SE" by letter d where d = "R" for right, "L" for left, "V" for reverse
     @staticmethod
     def rotate(letters, d):
         if len(letters) == 1:
@@ -57,6 +58,7 @@ class CC1TileCodes:
         else:
             raise Exception(f"Cannot rotate {letters}.")
 
+    # Rotate Tile code e.g. PLAYER_N by letter d where d = "R" for right, "L" for left, "V" for reverse
     @staticmethod
     def rotate_tile(tile_code, d):
         name = CC1TileCode.Name(tile_code)
