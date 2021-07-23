@@ -30,7 +30,7 @@ def remove(level, pos, tcodes, *, keep_cloned_mobs=False):
 				if not keep_cloned_mobs and tspec.top in CC1TileCodes.ENTITIES:
 					CC1TileSpecs.remove(tspec, tspec.top)
 			elif tcode == CC1TileCode.CLONE_BUTTON:
-				level.trap_controls.pop(pos, None)
+				level.clone_controls.pop(pos, None)
 	return removed
 
 def is_valid(level):
