@@ -29,21 +29,17 @@ def add(tspec, tcode):
         else:
             tspec.top = tcode
 
-def remove(tspec, tcodes):
-    if isinstance(tcodes, int):
-        tcodes = [tcodes]
-    removed = False
-    for tcode in tcodes:
-        if tcode == CC1TileCode.FLOOR:
-            continue
-        elif tcode == tspec.top:
-            removed = True
-            tspec.top = tspec.bottom
-            tspec.ClearField("bottom")
-        elif tcode == tspec.bottom:
-            removed = True
-            tspec.ClearField("bottom")
-    return removed
+def remove(tspec, tcode):
+    if tcode == CC1TileCode.FLOOR:
+        return False
+    elif tcode == tspec.top:
+        tspec.top = tspec.bottom
+        tspec.ClearField("bottom")
+        return True
+    elif tcode == tspec.bottom:
+        tspec.ClearField("bottom")
+        return True
+    return False
 
 def do_assertions():
 

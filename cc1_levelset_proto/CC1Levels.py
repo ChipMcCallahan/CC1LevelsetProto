@@ -7,7 +7,7 @@ def add(level, pos, tcode):
 	if tcode in CC1TileCodes.MONSTERS and pos not in level.movement:
 		level.movement.append(pos)
 
-def remove(level, pos, tcodes):
+def remove(level, pos, tcodes, *, keep_cloned_mobs=False):
 	if isinstance(tcodes, int):
 		tcodes = [tcodes]
 	tspec = level.map[pos]
@@ -27,6 +27,8 @@ def remove(level, pos, tcodes):
 				for k, v in tuple(level.clone_controls.items()):
 					if v == pos:
 						level.clone_controls.pop(k, None)
+				if not keep_cloned_mobs and tspec.top in CC1TileCodes.ENTITIES:
+					CC1TileSpecs.remove(tspec, tspec.top)
 			elif tcode == CC1TileCode.CLONE_BUTTON:
 				level.trap_controls.pop(pos, None)
 	return removed
