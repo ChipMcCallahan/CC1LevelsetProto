@@ -87,14 +87,6 @@ def do_assertions():
     assert remove(tspec, CC1TileCode.TEETH_S)
     assert tspec == of(CC1TileCode.WALL)   
 
-    tspec = of(CC1TileCode.TEETH_S, CC1TileCode.WALL)
-    assert remove(tspec, CC1TileCodes.ENTITIES)
-    assert tspec == of(CC1TileCode.WALL)
-
-    tspec = of(CC1TileCode.FIRE, CC1TileCode.WALL)
-    assert remove(tspec, CC1TileCodes.WALLS)
-    assert tspec == of(CC1TileCode.FIRE)
-
 
 # file will raise AssertionError on import if assertions fail
 do_assertions()
