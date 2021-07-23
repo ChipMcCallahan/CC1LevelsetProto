@@ -4,7 +4,7 @@ from cc1_levelset_proto import CC1TileCodes, CC1TileSpecs
 def add(level, pos, tcode):
 	tspec = level.map[pos]
 	CC1TileSpecs.add(tspec, tcode)
-	if tcode in CC1TileCodes.MONSTERS and pos not in level.movement:
+	if tcode in CC1TileCodes.MONSTERS and pos not in level.movement and len(level.movement) < 255:
 		level.movement.append(pos)
 
 def remove(level, pos, tcodes, *, keep_cloned_mobs=False):
