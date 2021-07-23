@@ -22,13 +22,13 @@ def remove(level, pos, tcodes):
 					if v == pos:
 						level.trap_controls.pop(k, None)
 			elif tcode == CC1TileCode.TRAP_BUTTON:
-				level.trap_controls.pop(k, None)
+				level.trap_controls.pop(pos, None)
 			elif tcode == CC1TileCode.CLONER:
 				for k, v in tuple(level.clone_controls.items()):
 					if v == pos:
 						level.clone_controls.pop(k, None)
 			elif tcode == CC1TileCode.CLONE_BUTTON:
-				level.trap_controls.pop(k, None)
+				level.trap_controls.pop(pos, None)
 	return removed
 
 def is_valid(level):
