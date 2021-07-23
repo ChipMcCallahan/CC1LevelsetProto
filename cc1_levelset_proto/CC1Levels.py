@@ -14,25 +14,21 @@ def remove(level, pos, tcodes):
 	removed = False
 	for tcode in tcodes:
 		if CC1TileSpecs.remove(tspec, tcode):
+			removed = True
 			if tcode in CC1TileCodes.MONSTERS and pos in level.movement:
-				del level.movement[level.movement.index(pos)]
+				level.movement.remove(pos)
 			elif tcode == CC1TileCode.TRAP:
 				for k, v in tuple(level.trap_controls.items()):
 					if v == pos:
-						del level.trap_controls[k]
+						level.trap_controls.pop(k, None)
 			elif tcode == CC1TileCode.TRAP_BUTTON:
-				for k in tuple(level.trap_controls.keys()):
-					if k == pos:
-						del level.trap_controls[k]
+				level.trap_controls.pop(k, None)
 			elif tcode == CC1TileCode.CLONER:
 				for k, v in tuple(level.clone_controls.items()):
 					if v == pos:
-						del level.clone_controls[k]
+						level.clone_controls.pop(k, None)
 			elif tcode == CC1TileCode.CLONE_BUTTON:
-				for k in tuple(level.clone_controls.keys()):
-					if k == pos:
-						del level.clone_controls[k]
-			removed = True
+				level.trap_controls.pop(k, None)
 	return removed
 
 def is_valid(level):
