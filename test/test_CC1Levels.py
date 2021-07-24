@@ -134,5 +134,3 @@ class TestCC1Levels(unittest.TestCase):
         lv.trap_controls[1] = 2
         update_controls(lv, 2, CC1TileCode.TRAP)
         self.assertEqual(len(lv.clone_controls), 0)
-        
-        self.fail("ran self.fail here")
